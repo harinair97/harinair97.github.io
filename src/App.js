@@ -4,8 +4,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Education from './Components/Education'
 import Achievements from './Components/Achievements'
@@ -14,7 +13,8 @@ import Projects from './Components/Projects'
 import Home from './Components/Home'
 import { Nav, Navbar} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import {Link} from 'react-scroll';
 
 
 function App() {
@@ -34,25 +34,28 @@ function App() {
 
                     <Nav>
                       
-                      <Nav.Link href="/">Home</Nav.Link>
-                      <Nav.Link href="/education">Education</Nav.Link>
-                      <Nav.Link href="/experience">Experience</Nav.Link>
-                      <Nav.Link href="/projects">Projects</Nav.Link>
-                      <Nav.Link href="/achievements">Achievements</Nav.Link>
+                      <Nav.Link><Link  to="home" spy={true} smooth={true}>Home</Link></Nav.Link>
+                      <Nav.Link><Link  to="edu" spy={true} smooth={true}>Education</Link></Nav.Link>
+                      <Nav.Link><Link  to="exp" spy={true} smooth={true}>Experience</Link></Nav.Link>
+                      <Nav.Link><Link  to="pro" spy={true} smooth={true}>Projects</Link></Nav.Link>
+                      <Nav.Link><Link  to="ach" spy={true} smooth={true}>Achievements</Link></Nav.Link>
+                      
+                      
+                      
 
                         
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>
 
+        <div id="home"><Home/></div>
+        <div id="edu"><Education/></div>
+        <div id="exp"><Experience/></div>
+        <div id="pro"><Projects/></div>
+        <div id="ach"><Achievements/></div>
 
-        <Switch>
-        <Route path = "/" component = {Home} exact/>
-            <Route path="/education" component = {Education} exact/>
-            <Route path="/experience" component = {Experience} exact/>
-            <Route path="/projects" component = {Projects} exact/>
-            <Route path="/achievements" component = {Achievements} exact/>
-        </Switch>
+
+        
 
         <br></br>
         <footer class="bg-dark text-center text-white">
